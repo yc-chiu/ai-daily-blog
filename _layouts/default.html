@@ -5,12 +5,12 @@
 </head>
 <body>
   <a class="skip-link" href="#main">跳至主要內容</a>
-  <div class="wrap">
-    {% include header.html %}
-    <main id="main">
+  {% include header.html %}
+  <main id="main">
+    <div class="wrap">
       {{ content }}
-    </main>
-    {% include footer.html %}
-  </div>
+    </div>
+  </main>
+  {% include footer.html %}
 </body>
 </html>

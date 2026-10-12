@@ -1,15 +1,11 @@
-<header class="masthead">
-  <p class="eyebrow">繁體中文 · 每日一則</p>
-  <p class="brand"><a href="{{ '/' | relative_url }}"><span class="seal" aria-hidden="true">報</span>{{ site.title }}</a></p>
-  <p class="tagline">{{ site.description }}</p>
-  {% assign latest = site.posts.first %}
-  {% if latest %}
-  <p class="masthead-date">最近更新 {% include date.html date=latest.date %}</p>
-  {% endif %}
-  <nav class="nav" aria-label="主要">
-    <a href="{{ '/' | relative_url }}"{% if page.home %} aria-current="page"{% endif %}>首頁</a>
-    <a href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags/' %} aria-current="page"{% endif %}>標籤</a>
-    <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about/' %} aria-current="page"{% endif %}>關於</a>
-    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-  </nav>
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-dot" aria-hidden="true"></span>{{ site.title }}</a>
+    <nav class="nav" aria-label="主要">
+      <a href="{{ '/' | relative_url }}"{% if page.home %} aria-current="page"{% endif %}>首頁</a>
+      <a href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags/' %} aria-current="page"{% endif %}>標籤</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about/' %} aria-current="page"{% endif %}>關於</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </div>
 </header>

@@ -1,5 +1,7 @@
 # AI 每日快報
 
+版式用 jf open 粉圓與暖米配色，深色模式跟著系統外觀。字級、欄寬與色彩記在 [DESIGN.md](DESIGN.md)。
+
 繁體中文的人工智慧每日整理。一天一篇，每篇是一個 Markdown 檔。網站用 Jekyll 寫成，由 GitHub Pages 從 `main` 分支直接建置。
 
 啟用 Pages 之後的網址：<https://yc-chiu.github.io/ai-daily-blog/>
