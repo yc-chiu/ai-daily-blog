@@ -92,4 +92,4 @@ index.html           首頁
 
 ## 範例文章
 
-`_posts/2026-10-12-sample-post.md` 只用來展示版面，標題已標成範例文章，內容是占位文字。正式開始發文後可以刪掉它。封面若不再使用，可一併刪除 `assets/images/sample-cover.png`。
+示範用的 `_posts/2026-10-12-sample-post.md` 與封面圖已刪除。新文章請複製 [`templates/post.md`](templates/post.md)。若某篇只是格式示範，在前言設 `sample: true`，頁面會標示「範例文章」。
