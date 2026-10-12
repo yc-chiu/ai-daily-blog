@@ -1,0 +1,46 @@
+---
+layout: default
+title: 標籤
+permalink: /tags/
+description: 依標籤瀏覽 AI 每日快報的文章。
+---
+<article class="page">
+  <header class="page-head">
+    <h1>標籤</h1>
+    <p class="page-intro">從主題找出相關的每日快報。</p>
+  </header>
+  {% if site.tags.size == 0 %}
+  <p class="empty">尚無標籤。</p>
+  {% else %}
+  {% capture tag_blob %}{% for tag in site.tags %}{{ tag[0] }}|||{% endfor %}{% endcapture %}
+  {% assign tag_names = tag_blob | split: "|||" | sort %}
+  <nav class="tag-index" aria-label="所有標籤">
+    {% for name in tag_names %}
+      {% assign name = name | strip %}
+      {% if name != "" %}
+      <a href="#tag-{{ name | replace: ' ', '-' | replace: '#', '' | replace: '"', '' }}">{{ name | escape }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+  {% for name in tag_names %}
+    {% assign name = name | strip %}
+    {% if name != "" %}
+      {% for tag in site.tags %}
+        {% if tag[0] == name %}
+        <section class="tag-group" id="tag-{{ name | replace: ' ', '-' | replace: '#', '' | replace: '"', '' }}">
+          <h2>{{ name | escape }} <span class="count">{{ tag[1].size }}</span></h2>
+          <ul>
+            {% for post in tag[1] %}
+            <li>
+              {% include date.html date=post.date %}
+              <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+</article>

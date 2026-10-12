@@ -1,0 +1,38 @@
+---
+layout: default
+home: true
+---
+<header class="home-head">
+  <h1>最新文章</h1>
+  <p>公開資料裡的人工智慧動態，每天整理成一篇。目前 {{ site.posts.size }} 篇。</p>
+</header>
+{% if paginator.posts.size == 0 %}
+<p class="empty">尚無文章。</p>
+{% else %}
+<ol class="entries">
+  {% for post in paginator.posts %}
+  <li>
+    {% if paginator.page == 1 and forloop.first %}
+      {% include entry.html post=post featured=true %}
+    {% else %}
+      {% include entry.html post=post %}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
+{% if paginator.total_pages > 1 %}
+<nav class="pagination" aria-label="文章分頁">
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}" rel="prev">較新的文章</a>
+  {% else %}
+  <span></span>
+  {% endif %}
+  <span class="page-status">第 {{ paginator.page }} / {{ paginator.total_pages }} 頁</span>
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}" rel="next">較早的文章</a>
+  {% else %}
+  <span></span>
+  {% endif %}
+</nav>
+{% endif %}

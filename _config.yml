@@ -1,0 +1,59 @@
+# AI 每日快報
+# 專案網站網址：https://yc-chiu.github.io/ai-daily-blog/
+# baseurl 必須是儲存庫名稱，前面加斜線、結尾不要斜線。
+# 站內連結請寫 /assets/... 或 /about/，版型會自動加上 baseurl。
+
+title: AI 每日快報
+description: 一天一篇，以繁體中文整理人工智慧的最新動態。
+lang: zh-Hant-TW
+url: https://yc-chiu.github.io
+baseurl: /ai-daily-blog
+repository_url: https://github.com/yc-chiu/ai-daily-blog
+
+# GitHub Pages 預設會套用 primer 主題。設成 null 才會完全使用本站版型。
+theme: null
+
+timezone: Asia/Taipei
+encoding: utf-8
+future: false
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+# 每頁 10 篇。分頁只作用在根目錄的 index.html，請勿改名。
+paginate: 10
+paginate_path: /page/:num/
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /:year/:month/:day/:title/
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - templates
+  - script
+  - vendor
+  - .bundle
+  - .github
+  - .editorconfig
+  - .gitattributes
+  - node_modules
+
+sass:
+  style: compressed

@@ -1,0 +1,73 @@
+---
+layout: default
+---
+<article class="post">
+  {% if page.sample %}
+  <p class="sample-banner" role="note">範例文章。這篇用來展示版面與欄位，內容是占位文字，並非正式新聞。</p>
+  {% endif %}
+  <header class="post-header">
+    <p class="post-meta">{% include date.html date=page.date %}</p>
+    <h1>{{ page.title | escape }}</h1>
+    {% include tags.html tags=page.tags %}
+  </header>
+  {% if page.summary %}
+  <p class="lede">{{ page.summary | escape }}</p>
+  {% endif %}
+  {% include cover.html cover=page.cover alt=page.cover_alt title=page.title css="post-cover" loading="eager" %}
+  <div class="prose">
+    {{ content }}
+  </div>
+  {% if page.sources and page.sources.size > 0 %}
+  <section class="sources" aria-labelledby="sources-title">
+    <h2 id="sources-title">參考來源</h2>
+    <ol>
+      {% for source in page.sources %}
+      <li>
+        {% if source.url %}
+        <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer">{{ source.name | default: source.url | escape }}</a>
+        <span class="source-url">{{ source.url | escape }}</span>
+        {% else %}
+        {{ source.name | default: source | escape }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+  {% if page.previous or page.next %}
+  <nav class="post-pager" aria-label="其他文章">
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}">
+      <span>較新的一篇</span>
+      {{ page.next.title | escape }}
+    </a>
+    {% endif %}
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}">
+      <span>較早的一篇</span>
+      {{ page.previous.title | escape }}
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</article>
+{% if page.cover %}
+  {% assign schema_image = page.cover | absolute_url %}
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.summary | default: "" | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "inLanguage": "zh-Hant-TW",
+  "mainEntityOfPage": {{ page.url | absolute_url | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: "/" | jsonify }}
+  }{% if schema_image %},
+  "image": {{ schema_image | jsonify }}{% endif %}
+}
+</script>
