@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# 建置網站並確認 baseurl、首頁、文章頁與 RSS。
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+export JEKYLL_ENV=production
+bundle exec jekyll build --trace
+
+test -f _site/index.html
+test -f _site/feed.xml
+test -f _site/about/index.html
+test -f _site/tags/index.html
+test -f _site/assets/css/style.css
+test -f _site/404.html
+
+post_html="$(find _site -type f \( -name 'index.html' -o -name 'sample-post.html' \) -path '*sample-post*' | head -n 1)"
+test -n "$post_html"
+
+grep -q "AI 每日快報" _site/index.html
+grep -q "範例文章" _site/index.html
+grep -q "這篇只示範每日快報的版面與欄位" _site/index.html
+grep -q 'href="/ai-daily-blog/assets/css/style.css"' _site/index.html
+grep -q 'lang="zh-Hant-TW"' _site/index.html
+grep -q "box-sizing" _site/assets/css/style.css
+grep -q "<language>zh-TW</language>" _site/feed.xml
+grep -q "範例文章" _site/feed.xml
+grep -q "參考來源" "$post_html"
+grep -q "openai.com/news" "$post_html"
+grep -q 'href="/ai-daily-blog/2026/10/12/sample-post/"' _site/index.html
+grep -q 'rel="canonical" href="https://yc-chiu.github.io/ai-daily-blog/"' _site/index.html
+grep -q 'rel="canonical" href="https://yc-chiu.github.io/ai-daily-blog/2026/10/12/sample-post/"' "$post_html"
+grep -q 'https://yc-chiu.github.io/ai-daily-blog/2026/10/12/sample-post/' _site/feed.xml
+grep -q 'href="/ai-daily-blog/2026/10/12/sample-post/"' _site/tags/index.html
+grep -q "最新 · 範例文章" _site/index.html
+if grep -R -n --include='*.html' --include='*.xml' -E 'href="/2026/' _site; then
+  echo "post links are missing baseurl" >&2
+  exit 1
+fi
+grep -q 'rel="alternate"' _site/index.html
+grep -q "關於" _site/about/index.html
+grep -q "格式說明" _site/tags/index.html
+
+python3 - << 'PY'
+import xml.etree.ElementTree as ET
+ET.parse("_site/feed.xml")
+print("feed.xml is well-formed XML")
+PY
+
+if grep -R -n --include='*.html' --include='*.xml' -F '/ai-daily-blog/ai-daily-blog' _site; then
+  echo "baseurl was doubled" >&2
+  exit 1
+fi
+
+echo "OK: site built at _site/"

@@ -1,0 +1,14 @@
+{%- if include.cover -%}
+  {%- assign cover_src = include.cover -%}
+  {%- if cover_src contains "://" -%}
+    {%- assign cover_href = cover_src -%}
+  {%- else -%}
+    {%- assign cover_href = cover_src | relative_url -%}
+  {%- endif -%}
+  {%- if include.decorative -%}
+    {%- assign cover_alt = "" -%}
+  {%- else -%}
+    {%- assign cover_alt = include.alt | default: include.title | default: "" -%}
+  {%- endif -%}
+  <img class="{{ include.css }}" src="{{ cover_href }}" alt="{{ cover_alt | escape }}" loading="{{ include.loading | default: 'lazy' }}" decoding="async">
+{%- endif -%}

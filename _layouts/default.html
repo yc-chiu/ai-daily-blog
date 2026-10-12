@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <div class="wrap">
+    {% include header.html %}
+    <main id="main">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{% if include.tags and include.tags.size > 0 %}
+<ul class="tags">
+  {% for tag in include.tags %}
+  <li><a href="{{ '/tags/' | relative_url }}#tag-{{ tag | replace: ' ', '-' | replace: '#', '' | replace: '"', '' }}">{{ tag | escape }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
