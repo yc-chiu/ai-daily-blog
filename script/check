@@ -23,6 +23,8 @@ grep -q "這篇只示範每日快報的版面與欄位" _site/index.html
 grep -q 'href="/ai-daily-blog/assets/css/style.css"' _site/index.html
 grep -q 'lang="zh-Hant-TW"' _site/index.html
 grep -q "box-sizing" _site/assets/css/style.css
+grep -q "Huninn" _site/assets/css/style.css
+test -f _site/assets/fonts/jf-openhuninn-2.1.woff2
 grep -q "<language>zh-TW</language>" _site/feed.xml
 grep -q "範例文章" _site/feed.xml
 grep -q "參考來源" "$post_html"

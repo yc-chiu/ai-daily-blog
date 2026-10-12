@@ -1,5 +1,7 @@
 # AI 每日快報
 
+這個分支包含一份閱讀版式提案，說明在 [DESIGN.md](DESIGN.md)。頁尾可切換「暖米 / 湖青」，網址也可加 `?palette=lake`、`?scheme=dark` 或 `?scheme=light`。提案尚未定案。
+
 繁體中文的人工智慧每日整理。一天一篇，每篇是一個 Markdown 檔。網站用 Jekyll 寫成，由 GitHub Pages 從 `main` 分支直接建置。
 
 啟用 Pages 之後的網址：<https://yc-chiu.github.io/ai-daily-blog/>

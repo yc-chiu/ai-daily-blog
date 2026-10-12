@@ -1,11 +1,19 @@
 <footer class="site-footer">
-  <p>文章經人工審閱後發布。</p>
-  <ul class="footer-links">
-    <li><a href="{{ '/' | relative_url }}">首頁</a></li>
-    <li><a href="{{ '/tags/' | relative_url }}">標籤</a></li>
-    <li><a href="{{ '/about/' | relative_url }}">關於</a></li>
-    <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
-    <li><a href="{{ site.repository_url }}">原始碼</a></li>
-  </ul>
-  <p class="copyright">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  <div class="wrap">
+    <p>文章經人工審閱後發布。</p>
+    <ul class="footer-links">
+      <li><a href="{{ '/' | relative_url }}">首頁</a></li>
+      <li><a href="{{ '/tags/' | relative_url }}">標籤</a></li>
+      <li><a href="{{ '/about/' | relative_url }}">關於</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+      <li><a href="{{ site.repository_url }}">原始碼</a></li>
+    </ul>
+    <div class="palette" role="group" aria-label="配色提案">
+      <span class="palette-label">配色提案</span>
+      <button type="button" data-palette-choice="warm" aria-pressed="true">暖米</button>
+      <button type="button" data-palette-choice="lake" aria-pressed="false">湖青</button>
+    </div>
+    <p class="palette-note">預設是暖米。深色模式跟著系統外觀；網址可加 ?scheme=dark 或 ?scheme=light。</p>
+    <p class="copyright">© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </div>
 </footer>
