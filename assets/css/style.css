@@ -1,4 +1,4 @@
-/* 閱讀版式提案。字體為 jf open 粉圓，配色由 data-palette / data-scheme 切換。 */
+/* 閱讀版式。字體為 jf open 粉圓，配色為暖米，深色跟著系統。 */
 
 @font-face {
   font-family: "Huninn";
@@ -26,25 +26,8 @@
   color-scheme: light;
 }
 
-html[data-palette="lake"] {
-  --canvas: #f3f6f5;
-  --surface: #ffffff;
-  --ink: #1c2826;
-  --muted: #5c6a66;
-  --faint: #7a8783;
-  --line: #e1e8e6;
-  --accent: #1a6559;
-  --accent-hover: #134e45;
-  --mark: #2f8f7e;
-  --chip: #e7f2ef;
-  --chip-text: #1a5c52;
-  --shadow: 0 1px 2px rgba(28, 40, 38, 0.04), 0 14px 36px rgba(28, 40, 38, 0.06);
-  --shadow-hover: 0 10px 28px rgba(28, 40, 38, 0.08);
-  --header: rgba(243, 246, 245, 0.9);
-}
-
 @media (prefers-color-scheme: dark) {
-  html:not([data-scheme="light"]):not([data-palette="lake"]) {
+  :root {
     --canvas: #161412;
     --surface: #221f1c;
     --ink: #f4efe8;
@@ -61,96 +44,6 @@ html[data-palette="lake"] {
     --header: rgba(22, 20, 18, 0.9);
     color-scheme: dark;
   }
-
-  html[data-palette="lake"]:not([data-scheme="light"]) {
-    --canvas: #121716;
-    --surface: #1b2220;
-    --ink: #eef3f1;
-    --muted: #b7c4c0;
-    --faint: #93a29d;
-    --line: #2d3936;
-    --accent: #9adfd0;
-    --accent-hover: #c9f3ea;
-    --mark: #3dbea8;
-    --chip: #24302d;
-    --chip-text: #d7f3ec;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.28), 0 16px 36px rgba(0, 0, 0, 0.32);
-    --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.38);
-    --header: rgba(18, 23, 22, 0.9);
-    color-scheme: dark;
-  }
-}
-
-html[data-scheme="dark"]:not([data-palette="lake"]) {
-  --canvas: #161412;
-  --surface: #221f1c;
-  --ink: #f4efe8;
-  --muted: #c8bfb6;
-  --faint: #a89f95;
-  --line: #3a342f;
-  --accent: #f0b5a2;
-  --accent-hover: #f6d2c6;
-  --mark: #e08a72;
-  --chip: #2c2622;
-  --chip-text: #f3d2c6;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.24), 0 16px 36px rgba(0, 0, 0, 0.28);
-  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.34);
-  --header: rgba(22, 20, 18, 0.9);
-  color-scheme: dark;
-}
-
-html[data-scheme="dark"][data-palette="lake"] {
-  --canvas: #121716;
-  --surface: #1b2220;
-  --ink: #eef3f1;
-  --muted: #b7c4c0;
-  --faint: #93a29d;
-  --line: #2d3936;
-  --accent: #9adfd0;
-  --accent-hover: #c9f3ea;
-  --mark: #3dbea8;
-  --chip: #24302d;
-  --chip-text: #d7f3ec;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.28), 0 16px 36px rgba(0, 0, 0, 0.32);
-  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.38);
-  --header: rgba(18, 23, 22, 0.9);
-  color-scheme: dark;
-}
-
-html[data-scheme="light"]:not([data-palette="lake"]) {
-  --canvas: #f6f3ee;
-  --surface: #fffcf8;
-  --ink: #2c2824;
-  --muted: #6f675f;
-  --faint: #8a8178;
-  --line: #e7e1d8;
-  --accent: #8f4330;
-  --accent-hover: #733322;
-  --mark: #c4654a;
-  --chip: #f3ebe4;
-  --chip-text: #6a3d2e;
-  --shadow: 0 1px 2px rgba(44, 40, 36, 0.04), 0 14px 36px rgba(44, 40, 36, 0.06);
-  --shadow-hover: 0 10px 28px rgba(44, 40, 36, 0.08);
-  --header: rgba(246, 243, 238, 0.88);
-  color-scheme: light;
-}
-
-html[data-scheme="light"][data-palette="lake"] {
-  --canvas: #f3f6f5;
-  --surface: #ffffff;
-  --ink: #1c2826;
-  --muted: #5c6a66;
-  --faint: #7a8783;
-  --line: #e1e8e6;
-  --accent: #1a6559;
-  --accent-hover: #134e45;
-  --mark: #2f8f7e;
-  --chip: #e7f2ef;
-  --chip-text: #1a5c52;
-  --shadow: 0 1px 2px rgba(28, 40, 38, 0.04), 0 14px 36px rgba(28, 40, 38, 0.06);
-  --shadow-hover: 0 10px 28px rgba(28, 40, 38, 0.08);
-  --header: rgba(243, 246, 245, 0.9);
-  color-scheme: light;
 }
 
 *,
@@ -733,42 +626,10 @@ main {
   color: var(--accent);
 }
 
-.palette {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.9rem;
-}
-
-.palette-label {
-  margin-right: 0.2rem;
-  color: var(--faint);
-  font-size: 0.82rem;
-}
-
-.palette button {
-  font: inherit;
-  font-size: 0.875rem;
-  color: var(--muted);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  min-height: 36px;
-  padding: 0.2rem 0.8rem;
-  cursor: pointer;
-}
-
-.palette button[aria-pressed="true"] {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--canvas);
-}
-
-.palette-note,
 .copyright {
   color: var(--faint);
   font-size: 0.82rem;
+  margin-top: 0.7rem;
 }
 
 .sr-only {

@@ -12,33 +12,5 @@
     </div>
   </main>
   {% include footer.html %}
-  <script>
-  (function () {
-    var key = "ai-daily-palette";
-    var root = document.documentElement;
-
-    function current() {
-      return root.getAttribute("data-palette") === "lake" ? "lake" : "warm";
-    }
-
-    function paint() {
-      var name = current();
-      document.querySelectorAll("[data-palette-choice]").forEach(function (button) {
-        button.setAttribute("aria-pressed", button.getAttribute("data-palette-choice") === name ? "true" : "false");
-      });
-    }
-
-    document.addEventListener("click", function (event) {
-      var button = event.target.closest("[data-palette-choice]");
-      if (!button) return;
-      var name = button.getAttribute("data-palette-choice");
-      root.setAttribute("data-palette", name);
-      try { localStorage.setItem(key, name); } catch (e) {}
-      paint();
-    });
-
-    paint();
-  })();
-  </script>
 </body>
 </html>

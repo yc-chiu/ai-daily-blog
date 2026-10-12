@@ -1,22 +1,5 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-(function () {
-  try {
-    var params = new URLSearchParams(location.search);
-    var palette = params.get("palette");
-    var scheme = params.get("scheme");
-    var saved = localStorage.getItem("ai-daily-palette");
-    if (palette !== "warm" && palette !== "lake") palette = saved;
-    if (palette === "warm" || palette === "lake") {
-      document.documentElement.setAttribute("data-palette", palette);
-    }
-    if (scheme === "dark" || scheme === "light") {
-      document.documentElement.setAttribute("data-scheme", scheme);
-    }
-  } catch (e) {}
-})();
-</script>
 {% if page.summary %}
   {% assign meta_desc = page.summary %}
 {% elsif page.description %}

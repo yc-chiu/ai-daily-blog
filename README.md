@@ -1,6 +1,6 @@
 # AI 每日快報
 
-這個分支包含一份閱讀版式提案，說明在 [DESIGN.md](DESIGN.md)。頁尾可切換「暖米 / 湖青」，網址也可加 `?palette=lake`、`?scheme=dark` 或 `?scheme=light`。提案尚未定案。
+版式用 jf open 粉圓與暖米配色，深色模式跟著系統外觀。字級、欄寬與色彩記在 [DESIGN.md](DESIGN.md)。
 
 繁體中文的人工智慧每日整理。一天一篇，每篇是一個 Markdown 檔。網站用 Jekyll 寫成，由 GitHub Pages 從 `main` 分支直接建置。
 
