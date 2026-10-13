@@ -49,6 +49,29 @@ grep -q 'rel="alternate"' _site/index.html
 grep -q "關於" _site/about/index.html
 grep -q "Anthropic" _site/tags/index.html
 
+amie_html="$(find _site -type f -path '*google-amie/index.html' | head -n 1)"
+test -n "$amie_html"
+test -f _site/assets/images/posts/2026-10-13-google-amie/cover.jpg
+test -f _site/assets/images/posts/2026-10-13-google-amie/amie-timeline-2024-2026.png
+test -f _site/assets/images/posts/2026-10-13-google-amie/lancet-trial-key-numbers.png
+grep -q 'class="post-cover" src="/ai-daily-blog/assets/images/posts/2026-10-13-google-amie/cover.jpg"' "$amie_html"
+grep -q 'src="/ai-daily-blog/assets/images/posts/2026-10-13-google-amie/lancet-trial-key-numbers.png"' "$amie_html"
+grep -q 'src="/ai-daily-blog/assets/images/posts/2026-10-13-google-amie/amie-timeline-2024-2026.png"' "$amie_html"
+grep -q 'src="/ai-daily-blog/assets/images/posts/2026-10-13-google-amie/cover.jpg"' _site/index.html
+grep -q 'href="/ai-daily-blog/2026/10/13/google-amie/"' _site/index.html
+grep -q "參考來源" "$amie_html"
+grep -q "doi.org/10.1016/S0140-6736(26)01535-7" "$amie_html"
+grep -q "elementsofai.com" "$amie_html"
+if grep -q 'relative_url' "$amie_html"; then
+  echo "inline image liquid was not rendered" >&2
+  exit 1
+fi
+cover_line="$(grep -n 'class="post-cover"' "$amie_html" | head -n 1 | cut -d: -f1)"
+sources_line="$(grep -n 'id="sources-title"' "$amie_html" | head -n 1 | cut -d: -f1)"
+test -n "$cover_line"
+test -n "$sources_line"
+test "$sources_line" -gt "$cover_line"
+
 python3 - << 'PY'
 import xml.etree.ElementTree as ET
 ET.parse("_site/feed.xml")
