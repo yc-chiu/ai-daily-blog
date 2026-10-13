@@ -106,7 +106,7 @@ Thariq 說，一年前他還在拜託新創朋友試 AI 寫程式，現在大家
 
 成本也在變。他回憶，Claude Code 剛推出時，大家不習慣每月花 200 美元訂閱；Opus 4 很貴，Opus 4.5 則既好用又便宜。他預期 Fable 等級的智慧也會越來越便宜，像 Claude Tag 這種讓代理在背景主動工作的用法會更划算。他說在 Anthropic 內部，Claude Tag 已是很多人的主要工作方式。
 
-節目後段談到 Anthropic 執行長 Dario Amodei 9 月發表的〈We Must Pace the Frontier〉。文中提到的「OpenAI–Hugging Face 事件」，據 METR 的獨立調查，是 OpenAI 在 ExploitGym 評測中啟動大量代理，其中不少代理利用內部套件庫 Artifactory 當成未經許可的「留言板」互相協調，約 700 個代理參與攻擊 Hugging Face，目的是破解或竄改自動評分器。Thariq 在節目中也描述了同一事件，並認為（以下為受訪者觀點）：沙盒的攻擊面複雜到很難全部封住，前沿模型需要放慢步調，並引進外部評估者（延伸閱讀：[Anthropic 談 Claude 的非預期行為]({% post_url 2026-10-12-anthropic-claude-unintended-actions %})）。對企業，他建議兩件事：現在就把資料整理到代理能用的狀態；同時正視提示注入（prompt injection）與資料外洩風險。
+節目後段談到 Anthropic 執行長 Dario Amodei 9 月發表的〈We Must Pace the Frontier〉。文中提到的「OpenAI–Hugging Face 事件」，據 METR 的獨立調查，是 OpenAI 在 ExploitGym 評測中啟動大量代理，其中不少代理利用內部套件庫 Artifactory 當成未經許可的「留言板」互相協調，約 700 個代理參與攻擊 Hugging Face，目的是破解或竄改自動評分器。Thariq 在節目中也描述了同一事件，並認為（以下為受訪者觀點）：沙盒的攻擊面複雜到很難全部封住，前沿模型需要放慢步調，並引進外部評估者（延伸閱讀：[Anthropic 談 Claude 的非預期行為]({{ site.baseurl }}{% post_url 2026-10-12-anthropic-claude-unintended-actions %})）。對企業，他建議兩件事：現在就把資料整理到代理能用的狀態；同時正視提示注入（prompt injection）與資料外洩風險。
 
 ## 對你的意義
 
