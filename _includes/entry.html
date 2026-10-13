@@ -1,8 +1,9 @@
 {% assign summary = include.post.summary | default: include.post.excerpt | strip_html | strip %}
+{% if include.featured %}{% assign cover_loading = "eager" %}{% else %}{% assign cover_loading = "lazy" %}{% endif %}
 <article class="entry{% if include.featured %} is-featured{% endif %}">
-  {% if include.featured and include.post.cover %}
-  <a class="entry-cover" href="{{ include.post.url | relative_url }}" tabindex="-1" aria-hidden="true">
-    {% include cover.html cover=include.post.cover decorative=true css="entry-hero" loading="eager" %}
+  {% if include.post.cover %}
+  <a class="entry-cover" href="{{ include.post.url | relative_url }}" tabindex="-1">
+    {% include cover.html cover=include.post.cover alt=include.post.cover_alt title=include.post.title css="entry-hero" loading=cover_loading %}
   </a>
   {% endif %}
   <div class="entry-main">
