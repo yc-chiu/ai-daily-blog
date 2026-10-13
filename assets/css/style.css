@@ -253,7 +253,9 @@ main {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
+  border-radius: 20px 20px 0 0;
   background: var(--chip);
 }
 
@@ -390,6 +392,7 @@ main {
 .post-cover {
   display: block;
   width: 100%;
+  height: auto;
   margin: 0 0 1.6rem;
   border-radius: 18px;
   background: var(--chip);
