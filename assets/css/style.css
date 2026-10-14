@@ -430,34 +430,19 @@ main {
 
 .prose h2,
 .prose h3 {
-  font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.45;
   text-wrap: balance;
-  color: var(--ink);
 }
 
 .prose h2 {
-  margin: 3rem 0 1rem;
-  padding-left: 0.85rem;
-  border-left: 4px solid var(--mark);
-  font-size: 1.75rem;
+  margin: 2.1rem 0 0.75rem;
+  font-size: 1.45rem;
 }
 
 .prose h3 {
-  margin: 2.2rem 0 0.7rem;
-  font-size: 1.4rem;
-}
-
-.prose h3::before {
-  content: "";
-  display: inline-block;
-  width: 0.5em;
-  height: 0.5em;
-  margin-right: 0.5em;
-  border-radius: 2px;
-  background: var(--mark);
-  vertical-align: 0.12em;
+  margin: 1.7rem 0 0.55rem;
+  font-size: 1.22rem;
 }
 
 .prose p,
