@@ -22,6 +22,7 @@ sources:
     url: "https://deepmind.google/models/model-cards/gemini-4-argon/"
 cover: /assets/images/posts/2026-10-14-gemini-4-argon/cover.jpg
 cover_alt: "Google 位於美國奧勒岡州達爾斯的資料中心建築與園區招牌（照片：Lambtron / Wikimedia Commons，CC BY-SA 4.0）"
+cover_credit: "照片：[Lambtron](https://commons.wikimedia.org/wiki/User:Lambtron)／[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Google_data_center.jpg)，[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)；已裁切為 16:9 並縮放，衍生圖同樣以 CC BY-SA 4.0 授權。"
 ---
 
 昨天（10 月 13 日），Google 宣布旗艦模型 **Gemini 4 Argon** 正式對全球開發者與企業開放。這不是單純的「又一個更大模型」新聞：官方把它定位成能扛長時程、多步驟工作的 frontier 模型，涵蓋軟體工程、企業知識工作、資安防禦，以及更進一步的機器人與具身推理。

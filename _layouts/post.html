@@ -3,6 +3,9 @@ layout: default
 ---
 <article class="post">
   {% include cover.html cover=page.cover alt=page.cover_alt title=page.title css="post-cover" loading="eager" %}
+  {% if page.cover and page.cover_credit %}
+  <p class="cover-credit">{{ page.cover_credit | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+  {% endif %}
   {% if page.sample %}
   <p class="sample-banner" role="note">範例文章。這篇用來展示版面與欄位，內容是占位文字，並非正式新聞。</p>
   {% endif %}

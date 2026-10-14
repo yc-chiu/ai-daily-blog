@@ -20,6 +20,8 @@ tags:
 # sample: true
 # cover: /assets/images/covers/example.jpg
 # cover_alt: "封面圖說明"
+# 封面來源與授權，顯示在封面下方的小字；可用 Markdown 連結。沒有就整行省略。
+# cover_credit: "照片：[作者](https://example.com/author)／[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Example.jpg)，[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
 sources:
   - name: "來源名稱"
     url: "https://example.com/original-article"

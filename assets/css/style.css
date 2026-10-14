@@ -398,6 +398,27 @@ main {
   background: var(--chip);
 }
 
+.post-cover:has(+ .cover-credit) {
+  margin-bottom: 0.5rem;
+}
+
+.cover-credit {
+  margin: 0 0 1.6rem;
+  color: var(--faint);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.cover-credit a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cover-credit a:hover {
+  color: var(--accent-hover);
+}
+
 .prose {
   font-size: 1.125rem;
   line-height: 1.9;

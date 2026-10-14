@@ -11,6 +11,7 @@ tags:
   - "AI 倫理"
 cover: /assets/images/posts/2026-10-13-google-amie/cover.jpg
 cover_alt: "聽診器放在筆記型電腦鍵盤上的特寫，象徵數位醫療（照片：Daniel Sone / National Cancer Institute，公有領域）"
+cover_credit: "照片：Daniel Sone／美國國家癌症研究所（NCI），來源：[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stethoscope_and_Laptop_Computer_-_Nci-vol-9713-300.jpg)，公有領域；已裁切為 16:9 並縮放。"
 sources:
   - name: "The Lancet：Conversational diagnostic artificial intelligence in ambulatory primary care: a prospective feasibility study"
     url: "https://doi.org/10.1016/S0140-6736(26)01535-7"
