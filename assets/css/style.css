@@ -23,27 +23,27 @@
   --shadow: 0 1px 2px rgba(44, 40, 36, 0.04), 0 14px 36px rgba(44, 40, 36, 0.06);
   --shadow-hover: 0 10px 28px rgba(44, 40, 36, 0.08);
   --header: rgba(246, 243, 238, 0.88);
+  --font-body: "PingFang TC", "Noto Sans TC", "Noto Sans CJK TC", "Microsoft JhengHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Huninn", "PingFang TC", "Microsoft JhengHei", sans-serif;
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #161412;
-    --surface: #221f1c;
-    --ink: #f4efe8;
-    --muted: #c8bfb6;
-    --faint: #a89f95;
-    --line: #3a342f;
-    --accent: #f0b5a2;
-    --accent-hover: #f6d2c6;
-    --mark: #e08a72;
-    --chip: #2c2622;
-    --chip-text: #f3d2c6;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.24), 0 16px 36px rgba(0, 0, 0, 0.28);
-    --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.34);
-    --header: rgba(22, 20, 18, 0.9);
-    color-scheme: dark;
-  }
+[data-theme="dark"] {
+  --canvas: #161412;
+  --surface: #221f1c;
+  --ink: #f4efe8;
+  --muted: #c8bfb6;
+  --faint: #a89f95;
+  --line: #3a342f;
+  --accent: #f0b5a2;
+  --accent-hover: #f6d2c6;
+  --mark: #e08a72;
+  --chip: #2c2622;
+  --chip-text: #f3d2c6;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.24), 0 16px 36px rgba(0, 0, 0, 0.28);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.34);
+  --header: rgba(22, 20, 18, 0.9);
+  color-scheme: dark;
 }
 
 *,
@@ -63,7 +63,7 @@ body {
   flex-direction: column;
   background: var(--canvas);
   color: var(--ink);
-  font-family: "Huninn", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   font-synthesis: none;
   font-size: 1.0625rem;
@@ -430,19 +430,34 @@ main {
 
 .prose h2,
 .prose h3 {
+  font-family: var(--font-display);
   font-weight: 400;
   line-height: 1.45;
   text-wrap: balance;
+  color: var(--ink);
 }
 
 .prose h2 {
-  margin: 2.1rem 0 0.75rem;
-  font-size: 1.45rem;
+  margin: 3rem 0 1rem;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--mark);
+  font-size: 1.75rem;
 }
 
 .prose h3 {
-  margin: 1.7rem 0 0.55rem;
-  font-size: 1.22rem;
+  margin: 2.2rem 0 0.7rem;
+  font-size: 1.4rem;
+}
+
+.prose h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 2px;
+  background: var(--mark);
+  vertical-align: 0.12em;
 }
 
 .prose p,
@@ -726,4 +741,51 @@ main {
   .entry {
     box-shadow: none;
   }
+}
+
+/* 標題與品牌沿用粉圓；內文改用系統黑體 */
+h1, h2, h3, h4,
+.brand,
+.nav a {
+  font-family: var(--font-display);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--mark);
+}
+
+.theme-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.theme-toggle .icon-sun,
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
 }
