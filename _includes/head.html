@@ -17,8 +17,14 @@
 {% endif %}
 <title>{{ meta_title | escape }}</title>
 <meta name="description" content="{{ meta_desc | escape }}">
-<meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#161412" media="(prefers-color-scheme: dark)">
+<script>
+  (function () {
+    var t = "light";
+    try { if (localStorage.getItem("theme") === "dark") t = "dark"; } catch (e) {}
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<meta name="theme-color" content="#f6f3ee">
 {% if page.sample %}
 <meta name="robots" content="noindex, follow">
 {% endif %}
