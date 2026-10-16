@@ -32,6 +32,8 @@ sources:
 
 權重可透過 Hugging Face、Amazon SageMaker AI、Google Cloud Model Garden、Microsoft Foundry Models 下載；API 則可由 Baseten、Fireworks AI、Groq、Modal、Nebius、OpenRouter、Together AI 等平台呼叫。推論引擎方面，官方列出 SGLang、vLLM、TensorRT-LLM、Hugging Face Transformers、Apple MLX、llama.cpp、Unsloth 等，並提到針對 NVIDIA、AMD、Intel 與 Apple 矽片的優化。開放權重版本還附上可自動調校的 Helion GPU kernel（搭配 SGLang），官方稱在 NVIDIA 與 AMD 上可帶來約 **1.03 至 3.95 倍**的 kernel 層加速。
 
+<img src="{{ '/assets/images/posts/2026-10-16-muse-spark-open/specs.png' | relative_url }}" width="1200" style="max-width:100%;height:auto" alt="Muse Spark Open 規格速覽：總參數約 8160 億、MoE 架構每次推論約啟動 420 億、支援 100 萬 token 上下文。下方流程圖顯示兩種使用方式：用兩台 M5 Ultra Mac Studio 搭配 Apple MLX 在本機推論，或透過 Groq、OpenRouter 等雲端 API 呼叫。">
+
 授權採 **Muse Model License**，帶有有限商業條款——許多開發者可免費使用，但並非毫無限制的「完全開源」。安全面上，Meta 表示針對開放權重情境做了額外安全後訓練，並依其 Meta Superintelligence Scaling Framework 評估後達到可釋出門檻；細部數字指向模型卡與即將公開的完整評估報告。
 
 ## 為什麼「兩台 Mac Studio」會成為焦點
