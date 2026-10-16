@@ -1,10 +1,10 @@
-# AI 每日快報
+# AI 前沿筆記
 # 專案網站網址：https://yc-chiu.github.io/ai-daily-blog/
 # baseurl 必須是儲存庫名稱，前面加斜線、結尾不要斜線。
 # 站內連結請寫 /assets/... 或 /about/，版型會自動加上 baseurl。
 
-title: AI 每日快報
-description: 一天一篇，以繁體中文整理人工智慧的最新動態。
+title: AI 前沿筆記
+description: 跟著 AI 最前沿的人思考，在變化最快的時代，持續進步。
 lang: zh-Hant-TW
 url: https://yc-chiu.github.io
 baseurl: /ai-daily-blog

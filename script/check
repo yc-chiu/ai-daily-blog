@@ -18,7 +18,7 @@ post_html="$(find _site -type f -path '*anthropic-claude-unintended-actions*' -n
 test -n "$post_html"
 test ! -e _site/2026/10/12/sample-post/index.html
 
-grep -q "AI 每日快報" _site/index.html
+grep -q "AI 前沿筆記" _site/index.html
 grep -q "Claude 測試時" _site/index.html
 grep -q "Anthropic 於 10 月 9 日公開報告" _site/index.html
 if grep -q "範例文章" _site/index.html; then
