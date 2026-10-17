@@ -18,9 +18,12 @@ post_html="$(find _site -type f -path '*anthropic-claude-unintended-actions*' -n
 test -n "$post_html"
 test ! -e _site/2026/10/12/sample-post/index.html
 
+# 首頁分頁（paginate: 10）後，較舊的文章會移到 /page/N/，所以這幾項檢查涵蓋所有分頁。
+home_pages=(_site/index.html _site/page/*/index.html)
+
 grep -q "AI 每日快報" _site/index.html
-grep -q "Claude 測試時" _site/index.html
-grep -q "Anthropic 於 10 月 9 日公開報告" _site/index.html
+grep -q "Claude 測試時" "${home_pages[@]}"
+grep -q "Anthropic 於 10 月 9 日公開報告" "${home_pages[@]}"
 if grep -q "範例文章" _site/index.html; then
   echo "sample post is still on the home page" >&2
   exit 1
@@ -35,7 +38,7 @@ grep -q "Claude 測試時" _site/feed.xml
 grep -q "參考來源" "$post_html"
 grep -q "anthropic.com/research/investigating-unintended-model-actions" "$post_html"
 grep -q "forklog.com/en/anthropic-disables-internet-access-for-claude-in-internal-evaluations" "$post_html"
-grep -q 'href="/ai-daily-blog/2026/10/12/anthropic-claude-unintended-actions/"' _site/index.html
+grep -q 'href="/ai-daily-blog/2026/10/12/anthropic-claude-unintended-actions/"' "${home_pages[@]}"
 grep -q 'rel="canonical" href="https://yc-chiu.github.io/ai-daily-blog/"' _site/index.html
 grep -q 'rel="canonical" href="https://yc-chiu.github.io/ai-daily-blog/2026/10/12/anthropic-claude-unintended-actions/"' "$post_html"
 grep -q 'https://yc-chiu.github.io/ai-daily-blog/2026/10/12/anthropic-claude-unintended-actions/' _site/feed.xml
