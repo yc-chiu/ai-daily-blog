@@ -12,5 +12,8 @@
     </div>
   </main>
   {% include footer.html %}
+  {% if jekyll.environment == "production" %}
+  <script data-goatcounter="https://ai-daily-blog.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+  {% endif %}
 </body>
 </html>
