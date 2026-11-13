@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "PCBRouteAgent：AI 代理幫電路板走線，論文自報最難真實板只過四成"
+title: "PCBRouteAgent：AI 代理幫電路板走線，作者自己公布最難真實板只過四成"
 date: 2026-11-13 14:45:00 +0800
-summary: "論文提出 PCBRouteAgent，讓大型語言模型先規劃電路板走線，再交給 KiCad 原生引擎執行。作者自報四組測試的 clean pass 率為 100%、94.9%、100% 與 40%，並強調「線都接上」並不代表通過電氣驗證。"
+summary: "論文提出 PCBRouteAgent，讓大型語言模型先規劃電路板走線，再交給 KiCad 原生引擎執行。作者自己公布四組測試的 clean pass 率為 100%、94.9%、100% 與 40%，並強調「線都接上」並不代表通過電氣驗證。"
 cover: "/assets/images/posts/2026-11-13-pcbrouteagent/cover.png"
 cover_alt: "深綠底融合綠色電路板上銅箔走線與電池接點的特寫照片；左側標題為「PCBRouteAgent，用 AI 代理規劃佈線」，副標為「以 KiCad 原生路由器執行，遇阻再修正」。"
-cover_credit: "圖片來源：[Raimond Spekking](https://commons.wikimedia.org/wiki/User:Raimond_Spekking)／[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:3G_Wi-Fi_Router_-_board-49856.jpg)，[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)；作者要求署名「© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)」；經裁切、漸層合成與加字。"
+cover_credit: "圖片來源：[Raimond Spekking](https://www.wikidata.org/wiki/Q108103612)／[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:3G_Wi-Fi_Router_-_board-49856.jpg)，[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)；作者要求署名「© Raimond Spekking / CC BY-SA 4.0 (via Wikimedia Commons)」；經裁切、漸層合成與加字。"
 tags:
   - "AI 代理"
   - "PCB"
@@ -29,20 +29,20 @@ sources:
 
 作者表示，設計靈感來自人類工程師「協調全局策略與局部執行」（"coordinate global strategy with local execution"）的方式。系統分兩層：Global Routing Planner 看電路板圖片和電氣、幾何資訊，決定連線拓撲、走線順序、走線通道與換層位置；Detailed Routing Executor 再透過開源電路設計軟體 KiCad 的原生走線引擎把銅線畫出來，局部卡住時先自行修復，修不好就把失敗原因整理成結構化回饋交回規劃層，只改有問題的部分，已經走好的線保留不動。
 
-## 作者自報四組測試的通過率，最難的真實板子只有 40%
+## 作者自己公布四組測試的通過率，最難的真實板子只有 40%
 
-作者在 PCBWorld-Bench 的 247 塊電路板上測試，其中 128 塊是合成板、119 塊是開源的真實設計。以下數字皆為作者自報，且是用 Claude Opus 5.5 的版本：
+作者在 PCBWorld-Bench 的 247 塊電路板上測試，其中 128 塊是合成板、119 塊是開源的真實設計。以下數字皆為作者自己公布的結果，且是用 Claude Opus 5.5 的版本：
 
-| 測試組 | 板子 | 作者自報 clean pass |
+| 測試組 | 板子 | 作者自己公布的 clean pass |
 | --- | --- | --- |
 | D2 | 128 塊合成板 | 100% |
 | D3-A | 99 塊小型真實板 | 94.9% |
 | D3-B | 10 塊中型真實板 | 100% |
 | D3-C | 10 塊大型真實板（超過 100 個接點） | 40% |
 
-<!-- 圖表來源行：PCBRouteAgent 論文（arXiv 2611.08175v2）摘要與 Tables 1–4，作者自報。 -->
+<!-- 圖表來源行：PCBRouteAgent 論文（arXiv 2611.08175v2）摘要與 Tables 1–4，數字為作者自己公布。 -->
 
-作者也自報，在三組真實板上，clean pass 率比所評最佳基線高出 13.9、36 與 10 個百分點。但在最難的 D3-C，論文直說「十塊板子中仍有六塊未完成」（"six of the ten boards remain incomplete"）。作者另外說明，換成 Claude Haiku 5.5，D3-C 只有 0.10。
+論文也宣稱，在三組真實板上，clean pass 率比所評最佳基線高出 13.9、36 與 10 個百分點。但在最難的 D3-C，論文直說「十塊板子中仍有六塊未完成」（"six of the ten boards remain incomplete"）。作者另外說明，換成 Claude Haiku 5.5，D3-C 只有 0.10。
 
 ## 論文定義的「通過」只代表接通且沒有規則錯誤，不等於電氣驗證過關
 
